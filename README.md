@@ -76,7 +76,7 @@ Click Lydia logo to Join Support Group
 
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@BlackAmda/Queen-Amdi-QR-Code)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/CamilaMwol/Lydia.git)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BlackAmda/QueenAmdi)
      </div>
 <br>
 <br >
