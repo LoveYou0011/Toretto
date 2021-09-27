@@ -56,7 +56,7 @@ Click logo to Join Bot Zone Group
 ## 
   <h3 align="center"> Support Group :</h3>
 <p align="center">
-Click Lydia logo to Join Support Group 
+Click logo to Join Support Group 
     <br>
 <br>
   <a href="https://chat.whatsapp.com/GMLkjdu4k1t9iTGhJSNWFX" target="blank"><img align="center" src="https://i.imgur.com/YlG2w4b.jpeg" alt="kyrie.baran" height="180" width="200" /></a>
