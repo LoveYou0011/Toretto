@@ -9,7 +9,7 @@
     "stack": "container",
     "env": {
         "AMDI_SESSION": {
-            "description": "Paste your QR session that you got from https://replit.com/@BlackAmda/Queen-Amdi-QR-Code.",
+            "description": "Paste your QR session that you got from replit.",
             "required": true
         },
         "SUDO": {
@@ -92,17 +92,17 @@
         "ALIVE_LOGO": {
             "description": "Alive message logo. Enter your image link below to change the image. (Upload the image you want to https://imgbb.com and put that link here.)",
             "required": true,
-            "value": "https://i.ibb.co/0h6pq4j/6fba2dec0129.jpg"
+            "value": "https://i.imgur.com/eRWsGWk.jpeg"
         },
         "WELCOME_LOGO": {
             "description": "Welcome message logo. Enter your image link below to change the image. (Upload the image you want to https://imgbb.com and put that link here.)",
             "required": true,
-            "value": "https://i.ibb.co/d54sGdd/f2097d7ddc39.jpg"
+            "value": "https://i.imgur.com/eRWsGWk.jpeg"
         },
         "BYE_LOGO": {
             "description": "Good Bye message logo. Enter your image link below to change the image. (Upload the image you want to https://imgbb.com and put that link here.)",
             "required": true,
-            "value": "https://i.ibb.co/pbjB2pS/93f527f9f2fb.jpg"
+            "value": "https://i.imgur.com/eRWsGWk.jpeg"
         },
         "UNMUTE_MESSAGE": {
             "description": "Message received when unmuteing a group.",
