@@ -3,19 +3,19 @@
 Licensed under the  GPL-3.0 License;
 you may not use this file except in compliance with the License.
 
-Toretto - Black Amda
+QueenAmdi - Black Amda
 */
 
 const fs = require("fs");
 const path = require("path");
 const events = require("./events");
-const Toretto = require('Toretto-public-2');
+const QueenAmdi = require('queenamdi-public-2');
 const chalk = require('chalk');
 const axios = require('axios');
 const config = require('./config');
 const Heroku = require('heroku-client');
 const {WAConnection, MessageOptions, MessageType, Mimetype, Presence} = require('@adiwajshing/baileys');
-const {Message, StringSession, Image, Video} = require('./Toretto');
+const {Message, StringSession, Image, Video} = require('./queenamdi');
 const { DataTypes } = require('sequelize');
 const { GreetingsDB, getMessage } = require("./plugins/sql/greetings");
 const got = require('got');
@@ -26,7 +26,7 @@ const heroku = new Heroku({
 
 let baseURI = '/apps/' + config.HEROKU.APP_NAME;
 
-const TorettoDB = config.DATABASE.define('Toretto', {
+const QueenAmdiDB = config.DATABASE.define('QueenAmdi', {
     info: {
       type: DataTypes.STRING,
       allowNull: false
@@ -67,18 +67,18 @@ Array.prototype.remove = function() {
     return this;
 };
 
-async function Toretto () {
+async function queenAmdi () {
     await config.DATABASE.sync();
-    var StrSes_Db = await TorettoDB.findAll({
+    var StrSes_Db = await QueenAmdiDB.findAll({
         where: {
           info: 'StringSession'
         }
     });
     
 
-const TorettoCon = new WAConnection();
+const QueenAmdiCon = new WAConnection();
 const Session = new StringSession();
-TorettoCon.version = [2, 2126, 14]
+QueenAmdiCon.version = [2, 2126, 14]
 setInterval(async () => { 
     var getGMTh = new Date().getHours()
     var getGMTm = new Date().getMinutes()
@@ -86,12 +86,12 @@ setInterval(async () => {
             const { infoen, infosi} = ann.data.announcements          
             if (infoen !== '' && config.LANG == 'EN' || config.LANG == 'ES') {
                 while (getGMTh == 08 && getGMTm == 00) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, '[ ```🔔Toretto Announcements🔔``` ]\n\n' + infoen.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '[ ```🔔Toretto Announcements🔔``` ]\n\n' + infoen.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
             else if (infosi !== '' && config.LANG == 'SI') {
                 while (getGMTh == 08 && getGMTm == 00) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, '[ ```🔔Toretto නිවේදන🔔``` ]\n\n' + infosi.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '[ ```🔔Toretto නිවේදන🔔``` ]\n\n' + infosi.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
         })
@@ -104,12 +104,12 @@ setInterval(async () => {
             const { infoen, infosi} = ann.data.announcements          
             if (infoen !== '' && config.LANG == 'EN' || config.LANG == 'ES') {
                 while (getGMTh == 18 && getGMTm == 00) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, '[ ```🔔Toretto Announcements🔔``` ]\n\n' + infoen.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '[ ```🔔Toretto Announcements🔔``` ]\n\n' + infoen.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
             else if (infosi !== '' && config.LANG == 'SI') {
                 while (getGMTh == 18 && getGMTm == 00) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, '[ ```🔔Toretto නිවේදන🔔``` ]\n\n' + infosi.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '[ ```🔔Toretto නිවේදන🔔``` ]\n\n' + infosi.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
         })
@@ -117,10 +117,10 @@ setInterval(async () => {
 
 setInterval(async () => { 
     if (config.AUTO_BIO == 'true') {
-        var tz_bio = await Toretto.timezone(TorettoCon.user.jid)
-        var date = await Toretto.datebio(config.LANG)
+        var tz_bio = await QueenAmdi.timezone(QueenAmdiCon.user.jid)
+        var date = await QueenAmdi.datebio(config.LANG)
         const biography = '📅 ' + date + '\n⌚ ' + tz_bio + '    🎖️ ' + config.CAP
-        await TorettoCon.setStatus(biography)
+        await QueenAmdiCon.setStatus(biography)
     }
 }, 7890);
 
@@ -138,12 +138,12 @@ if (/\[(\W*)\]/.test(config.HANDLERS)) {
             const { verify} = ann.data.announcements          
             if (verify !== '' && config.LANG == 'EN') {
                 while (getGMTh == 20 && getGMTm == 55) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, HANDLER + verify.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, HANDLER + verify.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
             else if (verify !== '' && config.LANG == 'SI') {
                 while (getGMTh == 20 && getGMTm == 55) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, HANDLER + verify.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, HANDLER + verify.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
         })
@@ -156,12 +156,12 @@ if (/\[(\W*)\]/.test(config.HANDLERS)) {
             const { verify} = ann.data.announcements          
             if (verify !== '' && config.LANG == 'EN') {
                 while (getGMTh == 04 && getGMTm == 55) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, HANDLER + verify.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, HANDLER + verify.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
             else if (verify !== '' && config.LANG == 'SI') {
                 while (getGMTh == 04 && getGMTm == 55) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, HANDLER + verify.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, HANDLER + verify.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
         })
@@ -174,12 +174,12 @@ if (/\[(\W*)\]/.test(config.HANDLERS)) {
             const { verify} = ann.data.announcements          
             if (verify !== '' && config.LANG == 'EN') {
                 while (getGMTh == 12 && getGMTm == 55) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, HANDLER + verify.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, HANDLER + verify.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
             else if (verify !== '' && config.LANG == 'SI') {
                 while (getGMTh == 12 && getGMTm == 55) { 
-                    return Toretto.sendMessage(TorettoCon.user.jid, HANDLER + verify.replace('{user}', TorettoCon.user.name).replace('{wa_version}', TorettoCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', TorettoCon.user.phone.os_version).replace('{device_model}', TorettoCon.user.phone.device_model).replace('{device_brand}', TorettoCon.user.phone.device_manufacturer), MessageType.text) 
+                    return QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, HANDLER + verify.replace('{user}', QueenAmdiCon.user.name).replace('{wa_version}', QueenAmdiCon.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', QueenAmdiCon.user.phone.os_version).replace('{device_model}', QueenAmdiCon.user.phone.device_model).replace('{device_brand}', QueenAmdiCon.user.phone.device_manufacturer), MessageType.text) 
                 }
             }
         })
@@ -189,38 +189,38 @@ if (/\[(\W*)\]/.test(config.HANDLERS)) {
 */
 
 // ======================Queen_Amdi_Logger=======================
-TorettoCon.logger.level = config.DEBUG ? 'debug' : 'warn';
+QueenAmdiCon.logger.level = config.DEBUG ? 'debug' : 'warn';
 var nodb;
 
     if (StrSes_Db.length < 1) {
         nodb = true;
-        TorettoCon.loadAuthInfo(Session.deCrypt(config.SESSION)); 
+        QueenAmdiCon.loadAuthInfo(Session.deCrypt(config.SESSION)); 
     } else {
-        TorettoCon.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));
+        QueenAmdiCon.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));
     }
 
 if (config.LANG == 'EN' || config.LANG == 'ES') {
-    TorettoCon.on ('credentials-updated', async () => {
+    QueenAmdiCon.on ('credentials-updated', async () => {
         console.log(
             chalk.blueBright.italic('✅ Login details updated!')
         );
 
-        const authInfo = TorettoCon.base64EncodedAuthInfo();
+        const authInfo = QueenAmdiCon.base64EncodedAuthInfo();
         if (StrSes_Db.length < 1) {
-            await TorettoDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
+            await QueenAmdiDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
         } else {
             await StrSes_Db[0].update({ value: Session.createStringSession(authInfo) });
         }
     })}
 else if (config.LANG == 'SI') {
-    TorettoCon.on ('credentials-updated', async () => {
+    QueenAmdiCon.on ('credentials-updated', async () => {
         console.log(
             chalk.blueBright.italic('✅ පිවිසුම් තොරතුරු update කරන ලදි!')
         );
 
-        const authInfo = TorettoCon.base64EncodedAuthInfo();
+        const authInfo = QueenAmdiCon.base64EncodedAuthInfo();
         if (StrSes_Db.length < 1) {
-            await TorettoDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
+            await QueenAmdiDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
         } else {
             await StrSes_Db[0].update({ value: Session.createStringSession(authInfo) });
         }
@@ -228,7 +228,7 @@ else if (config.LANG == 'SI') {
 }
 
 if (config.LANG == 'EN' || config.LANG == 'ES') {
-    TorettoCon.on('connecting', async () => {
+    QueenAmdiCon.on('connecting', async () => {
         console.log(`${chalk.green.bold('Queen')}${chalk.blue.bold('Amdi')}
     ${chalk.white.bold('Version:')} ${chalk.red.bold(config.VERSION)}
 
@@ -236,7 +236,7 @@ if (config.LANG == 'EN' || config.LANG == 'ES') {
         });
 }
 else if (config.LANG == 'SI') {
-    TorettoCon.on('connecting', async () => {
+    QueenAmdiCon.on('connecting', async () => {
         console.log(`${chalk.green.bold('Queen')}${chalk.blue.bold('Amdi')}
     ${chalk.white.bold('Version:')} ${chalk.red.bold(config.VERSION)}
 
@@ -245,7 +245,7 @@ else if (config.LANG == 'SI') {
 }
 
 if (config.LANG == 'EN' || config.LANG == 'ES') {
-    TorettoCon.on('open', async () => {
+    QueenAmdiCon.on('open', async () => {
         console.log(
             chalk.green.bold('✅ Successfully logged-in!')
         );
@@ -286,9 +286,9 @@ if (config.LANG == 'EN' || config.LANG == 'ES') {
         await new Promise(r => setTimeout(r, 1100));
 
 if (config.WORKTYPE == 'public') {
-    if (TorettoCon.user.jid === '@s.whatsapp.net') {
+    if (QueenAmdiCon.user.jid === '@s.whatsapp.net') {
 
-        await Toretto.sendMessage(TorettoCon.user.jid, '```🛡️ Blacklist Detected!``` \n```User:```  \n```Reason:``` ', MessageType.text)
+        await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '```🛡️ Blacklist Detected!``` \n```User:```  \n```Reason:``` ', MessageType.text)
 
         await new Promise(r => setTimeout(r, 1800));
 
@@ -303,13 +303,13 @@ if (config.WORKTYPE == 'public') {
         })
     }
     else {
-        await Toretto.sendMessage(TorettoCon.user.jid, '*Toretto started in Public Mode👸*\n\n_Please do not try any commands here. This is your log number._\n_You can try commands anywhere else :)_\n\n_Type_ *.panel* _to get your full command list._\n\n_Your bot in Public Mode. To change, use_ ```.setvar WORK_TYPE=private``` _command._\n\n*You can check our website for new features : https://www.amdaniwasa.com/*\n\n*Comment here to request new features:*\nhttps://amdaniwasa.com/index-en.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Thank you for using Toretto 💌*', MessageType.text);
+        await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*Toretto started in Public Mode👸*\n\n_Please do not try any commands here. This is your log number._\n_You can try commands anywhere else :)_\n\n_Type_ *.panel* _to get your full command list._\n\n_Your bot in Public Mode. To change, use_ ```.setvar WORK_TYPE=private``` _command._\n\n*You can check our website for new features : https://www.amdaniwasa.com/*\n\n*Comment here to request new features:*\nhttps://amdaniwasa.com/index-en.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Thank you for using Toretto 💌*', MessageType.text);
     }
 }
 else if (config.WORKTYPE == 'private') {
-    if (TorettoCon.user.jid === '@s.whatsapp.net') {
+    if (QueenAmdiCon.user.jid === '@s.whatsapp.net') {
 
-        await Toretto.sendMessage(TorettoCon.user.jid, '```🛡️ Blacklist Detected!``` \n```User:```  \n```Reason:``` ', MessageType.text)
+        await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '```🛡️ Blacklist Detected!``` \n```User:```  \n```Reason:``` ', MessageType.text)
    
         await new Promise(r => setTimeout(r, 1800));
 
@@ -324,7 +324,7 @@ else if (config.WORKTYPE == 'private') {
         })
     }
     else {
-        await Toretto.sendMessage(TorettoCon.user.jid, '*Toretto started in Private Mode👸*\n\n_Please do not try any commands here. This is your log number._\n_You can try commands anywhere else :)_\n\n_Type_ *.panel* _to get your full command list._\n\n_Your bot in Private Mode. To change, use_ ```.setvar WORK_TYPE=public``` _command._\n\n*You can check our website for new features : https://www.amdaniwasa.com/*\n\n*Comment here to request new features:*\nhttps://amdaniwasa.com/index-en.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Thank you for using Toretto 💌*', MessageType.text);
+        await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*Toretto started in Private Mode👸*\n\n_Please do not try any commands here. This is your log number._\n_You can try commands anywhere else :)_\n\n_Type_ *.panel* _to get your full command list._\n\n_Your bot in Private Mode. To change, use_ ```.setvar WORK_TYPE=public``` _command._\n\n*You can check our website for new features : https://www.amdaniwasa.com/*\n\n*Comment here to request new features:*\nhttps://amdaniwasa.com/index-en.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Thank you for using Toretto 💌*', MessageType.text);
     }
 }
     else {
@@ -333,7 +333,7 @@ else if (config.WORKTYPE == 'private') {
     });
 }
 else if (config.LANG == 'SI') {
-    TorettoCon.on('open', async () => {
+    QueenAmdiCon.on('open', async () => {
         console.log(
             chalk.green.bold('✅ පුරනය වීම සාර්ථකයි!')
         );
@@ -375,9 +375,9 @@ else if (config.LANG == 'SI') {
 
         if (config.WORKTYPE == 'public') {
 
-                if (TorettoCon.user.jid === '@s.whatsapp.net') {
+                if (QueenAmdiCon.user.jid === '@s.whatsapp.net') {
 
-                    await Toretto.sendMessage(TorettoCon.user.jid, '```🛡️ Blacklist අනාවරණය විය!``` \n```පරිශීලක:``` \n```හේතුව:``` ', MessageType.text)
+                    await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '```🛡️ Blacklist අනාවරණය විය!``` \n```පරිශීලක:``` \n```හේතුව:``` ', MessageType.text)
 
                     await new Promise(r => setTimeout(r, 1700));
 
@@ -393,15 +393,15 @@ else if (config.LANG == 'SI') {
                     })
                 }
                 else {
-                    await Toretto.sendMessage(TorettoCon.user.jid, '*Queen ඇම්ඩි public ආකාරයට ක්‍රියාකිරිම ආරම්භ විය.👸*\n\n_කරුණාකර මෙහි command උත්සාහ නොකරන්න. මෙය ඔබගේ ලොග් අංකයයි._\n_ඔබට ඕනෑම චැට් එකක විධාන උත්සාහ කළ හැකිය :)_\n\n_ඔබේ command list එක ලබාගැනීමට_ *.panel* _command එක භාවිතා කරන්න._\n\n_ඔබේ bot public ක්‍රියාත්මක වේ. වෙනස් කිරීමට_ ```.setvar WORK_TYPE=private``` _විධානය භාවිතා කරන්න._\n\n*නව විශේෂාංග සඳහා ඔබට අපගේ වෙබ් අඩවිය පරීක්‍ෂා කළ හැකිය : https://www.amdaniwasa.com/*\n\n*Toretto සඳහා එකතු කළ හැකි නව අදහස් මෙහි comment කරන්න:*\nhttps://amdaniwasa.com/index-si.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Queen ඇම්ඩි භාවිතා කිරීම ගැන ස්තූතියි 💌*', MessageType.text);
+                    await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*Queen ඇම්ඩි public ආකාරයට ක්‍රියාකිරිම ආරම්භ විය.👸*\n\n_කරුණාකර මෙහි command උත්සාහ නොකරන්න. මෙය ඔබගේ ලොග් අංකයයි._\n_ඔබට ඕනෑම චැට් එකක විධාන උත්සාහ කළ හැකිය :)_\n\n_ඔබේ command list එක ලබාගැනීමට_ *.panel* _command එක භාවිතා කරන්න._\n\n_ඔබේ bot public ක්‍රියාත්මක වේ. වෙනස් කිරීමට_ ```.setvar WORK_TYPE=private``` _විධානය භාවිතා කරන්න._\n\n*නව විශේෂාංග සඳහා ඔබට අපගේ වෙබ් අඩවිය පරීක්‍ෂා කළ හැකිය : https://www.amdaniwasa.com/*\n\n*Toretto සඳහා එකතු කළ හැකි නව අදහස් මෙහි comment කරන්න:*\nhttps://amdaniwasa.com/index-si.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Queen ඇම්ඩි භාවිතා කිරීම ගැන ස්තූතියි 💌*', MessageType.text);
                 }
             }
         
         else if (config.WORKTYPE == 'private') {
 
-                if (TorettoCon.user.jid === '@s.whatsapp.net') {
+                if (QueenAmdiCon.user.jid === '@s.whatsapp.net') {
 
-                    await Toretto.sendMessage(TorettoCon.user.jid, '```🛡️ Blacklist Detected!``` \n ```පරිශීලක:``` \n```හේතුව:``` ', MessageType.text)
+                    await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '```🛡️ Blacklist Detected!``` \n ```පරිශීලක:``` \n```හේතුව:``` ', MessageType.text)
 
                     await new Promise(r => setTimeout(r, 1800));
 
@@ -417,7 +417,7 @@ else if (config.LANG == 'SI') {
                 }
                 else {
 
-                await Toretto.sendMessage(TorettoCon.user.jid, '*Queen ඇම්ඩි private ආකාරයට ක්‍රියාකිරිම ආරම්භ විය.👸*\n\n_කරුණාකර මෙහි command උත්සාහ නොකරන්න. මෙය ඔබගේ ලොග් අංකයයි._\n_ඔබට ඕනෑම චැට් එකක විධාන උත්සාහ කළ හැකිය :)_\n\n_ඔබේ command list එක ලබාගැනීමට_ *.panel* _command එක භාවිතා කරන්න._\n\n_ඔබේ bot private ක්‍රියාත්මක වේ. වෙනස් කිරීමට_ ```.setvar WORK_TYPE=public``` _විධානය භාවිතා කරන්න._\n\n*නව විශේෂාංග සඳහා ඔබට අපගේ වෙබ් අඩවිය පරීක්‍ෂා කළ හැකිය : https://www.amdaniwasa.com/*\n\n*Toretto සඳහා එකතු කළ හැකි නව අදහස් මෙහි comment කරන්න:*\nhttps://amdaniwasa.com/index-si.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Queen ඇම්ඩි භාවිතා කිරීම ගැන ස්තූතියි 💌*', MessageType.text);
+                await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*Queen ඇම්ඩි private ආකාරයට ක්‍රියාකිරිම ආරම්භ විය.👸*\n\n_කරුණාකර මෙහි command උත්සාහ නොකරන්න. මෙය ඔබගේ ලොග් අංකයයි._\n_ඔබට ඕනෑම චැට් එකක විධාන උත්සාහ කළ හැකිය :)_\n\n_ඔබේ command list එක ලබාගැනීමට_ *.panel* _command එක භාවිතා කරන්න._\n\n_ඔබේ bot private ක්‍රියාත්මක වේ. වෙනස් කිරීමට_ ```.setvar WORK_TYPE=public``` _විධානය භාවිතා කරන්න._\n\n*නව විශේෂාංග සඳහා ඔබට අපගේ වෙබ් අඩවිය පරීක්‍ෂා කළ හැකිය : https://www.amdaniwasa.com/*\n\n*Toretto සඳහා එකතු කළ හැකි නව අදහස් මෙහි comment කරන්න:*\nhttps://amdaniwasa.com/index-si.html#comments\n\n*Updates:* https://gist.github.com/BlackAmda/890b6b31fcb8d376d6a68afcb7359324\n\n *Queen ඇම්ඩි භාවිතා කිරීම ගැන ස්තූතියි 💌*', MessageType.text);
                 }
             }
         
@@ -428,11 +428,11 @@ else if (config.LANG == 'SI') {
 }
 // ==============================================================
 
-    TorettoCon.on('message-new', async msg => {
+    QueenAmdiCon.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
 
         if (config.NO_ONLINE) {
-            await TorettoCon.updatePresence(msg.key.remoteJid, Presence.unavailable);
+            await QueenAmdiCon.updatePresence(msg.key.remoteJid, Presence.unavailable);
         }
 
         if (msg.messageStubType === 32 || msg.messageStubType === 28) {
@@ -441,7 +441,7 @@ else if (config.LANG == 'SI') {
             var gb = await getMessage(msg.key.remoteJid, 'goodbye')
             
             if (gb !== false) {
-                await Toretto.sendMessage(msg.key.remoteJid, Buffer.from (blogo.data), MessageType.image, {mimetype: Mimetype.png, caption: gb.message});
+                await QueenAmdiCon.sendMessage(msg.key.remoteJid, Buffer.from (blogo.data), MessageType.image, {mimetype: Mimetype.png, caption: gb.message});
             }
             return;
         } else if (msg.messageStubType === 27 || msg.messageStubType === 31) {
@@ -450,7 +450,7 @@ else if (config.LANG == 'SI') {
             var gb = await getMessage(msg.key.remoteJid)
             
             if (gb !== false) {
-                await Toretto.sendMessage(msg.key.remoteJid, Buffer.from (wlogo.data), MessageType.image, {mimetype: Mimetype.png, caption: gb.message});
+                await QueenAmdiCon.sendMessage(msg.key.remoteJid, Buffer.from (wlogo.data), MessageType.image, {mimetype: Mimetype.png, caption: gb.message});
             }
             return;
         }
@@ -524,7 +524,7 @@ else if (config.LANG == 'SI') {
                         command.pattern.test(text_msg))))) {
 
                     let sendMsg = false;
-                    var chat = TorettoCon.chats.get(msg.key.remoteJid)
+                    var chat = QueenAmdiCon.chats.get(msg.key.remoteJid)
                         
                     // =========================SUDO & OWN=================================
                     if ((config.SUDO !== false && msg.key.fromMe === false && command.fromMe === true &&
@@ -584,22 +584,22 @@ else if (config.LANG == 'SI') {
 
                     if (sendMsg) {
                         if (config.SEND_READ && command.on === undefined) {
-                            await TorettoCon.chatRead(msg.key.remoteJid);
+                            await QueenAmdiCon.chatRead(msg.key.remoteJid);
                         }
                         
                         var match = text_msg.match(command.pattern);
                         
                         if (command.on !== undefined && (command.on === 'image' || command.on === 'photo' )
                         && msg.message.imageMessage !== null) {
-                            whats = new Image(TorettoCon, msg);
+                            whats = new Image(QueenAmdiCon, msg);
                         } else if (command.on !== undefined && (command.on === 'video' )
                         && msg.message.videoMessage !== null) {
-                            whats = new Video(TorettoCon, msg);
+                            whats = new Video(QueenAmdiCon, msg);
                         } else {
-                            whats = new Message(TorettoCon, msg);
+                            whats = new Message(QueenAmdiCon, msg);
                         }
                         if (msg.key.fromMe) {
-                            var vers = TorettoCon.user.phone.wa_version.split('.')[2]
+                            var vers = QueenAmdiCon.user.phone.wa_version.split('.')[2]
                                 if (command.deleteCommand && vers < 12) { 
                                     await whats.delete() 
                                  }
@@ -609,7 +609,7 @@ else if (config.LANG == 'SI') {
                             await command.function(whats, match);
                         } catch (error) {
                             if (config.LANG == 'SI') {
-                                await Toretto.sendMessage(TorettoCon.user.jid, '*-- දෝෂ වාර්තාව [Toretto] --*' + 
+                                await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*-- දෝෂ වාර්තාව [Toretto] --*' + 
                                     '\n\n*Toretto Bot දෝෂයක් සිදුවී ඇත!*'+
                                     '\n\n_මෙම දෝෂ logs ඔබගේ අංකය හෝ ප්‍රති පාර්ශ්වයේ අංකය අඩංගු විය හැකිය. කරුණාකර එය සමග සැලකිලිමත් වන්න!_' +
                                     '\n\n_උදව් සඳහා ඔබට අපගේ whatsapp support කණ්ඩායමට ලිවිය හැකිය_' +
@@ -619,7 +619,7 @@ else if (config.LANG == 'SI') {
                                     , MessageType.text, {detectLinks: false}
                                 );
                                 if (error.message.includes('URL')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _මාධ්‍යන් සකසා ගත නොහැකි වීම._' +
                                         '\n\n\n*හේතුව:* _LOG අංකය තුළ මාධ්‍ය මෙවලම් (xmedia, sticker..) භාවිතය._' +
@@ -628,7 +628,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('split')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Split සොයා ගත නොහැක_' +
                                         '\n\n*හේතුව:* _කණ්ඩායම් admin භාවිතා කළ හැකි විධානයන් සමහර විට split ක්‍රියාවලිය නොදකි._ ' +
@@ -637,16 +637,16 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('Ookla')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
-                                        '\n\n*ප්‍රධාන දෝෂය:* _Ookla Server TorettoConection_' +
+                                        '\n\n*ප්‍රධාන දෝෂය:* _Ookla Server QueenAmdiConection_' +
                                         '\n\n*හේතුව:* _සේවාදායකයට වේගවත්ම දත්ත සම්ප්‍රේෂණය කළ නොහැක._' +
                                         '\n\n*විසඳුම:* _ඔබ එය තවත් වරක් භාවිතා කළහොත් ගැටළුව විසඳනු ඇත._'
                                         , MessageType.text
                                     );
                                 }
                                 else if (error.message.includes('params')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Audio Params වැරදි වීම._' +
                                         '\n\n*හේතුව:* _හෝඩියේ පිටත TTS විධානය භාවිතා කිරීම._' +
@@ -655,7 +655,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('unlink')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n========== ```දෝෂ නිරාකරණය කර ඇත``` ==========' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _එවැනි folders නැත_' +
                                         '\n\n*හේතුව:* _Pluginයේ වැරදි කේතීකරණය._' +
@@ -664,7 +664,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('404')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Error 404 HTTPS_' +
                                         '\n\n*හේතුව:* _Heroku plugins යටතේ ඇති විධානයන් භාවිතා කිරීම හේතුවෙන් සේවාදායකයා සමඟ සන්නිවේදනය කිරීමට නොහැකි වීම._' +
@@ -673,7 +673,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('reply.delete')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Reply.delete function නොමැති වීම සහ දෙවරක් පිළිතුරු දීම_' +
                                         '\n\n*හේතුව:* _IMG හෝ Wiki විධානයන් භාවිතා කිරීම. (Official වට්ස්ඇප් භාවිතය.)_' +
@@ -682,7 +682,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('load.delete')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Reply Delete Function_' +
                                         '\n\n*හේතුව:* _IMG හෝ Wiki විධානයන් භාවිතා කිරීම. (Official වට්ස්ඇප් භාවිතය.)_' +
@@ -691,7 +691,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('400')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Bailyes Action Error_ ' +
                                         '\n\n*හේතුව:* _නිශ්චිත හේතුව නොදනී. විකල්ප එකකට වඩා මෙම දෝෂය ඇති වීමට හේතු විය හැක._' +
@@ -700,7 +700,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('decode')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Text හෝ මාධ්‍ය විකේතනය කළ නොහැක_' +
                                         '\n\n*හේතුව:* _වැරදි ලෙස භාවිතා කිරීම._' +
@@ -709,7 +709,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('500')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Media downloading error_' +
                                         '\n\n*හේතුව:* _වෙබ් අඩවිය අතර සම්බන්ධතාවය විසන්ධි විය._' +
@@ -718,7 +718,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('503')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _Media downloading error_' +
                                         '\n\n*හේතුව:* _වෙබ් අඩවිය අතර සම්බන්ධතාවය විසන්ධි විය._' +
@@ -727,7 +727,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('unescaped')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ දෝෂ විශ්ලේෂණය [Toretto] ⚜️*' + 
                                         '\n==== ```දෝෂ නිරාකරණය කර ඇත!``` ====' +
                                         '\n\n*ප්‍රධාන දෝෂය:* _වචන භාවිතය_' +
                                         '\n\n*හේතුව:* _English හෝඩියේ පිටත TTP, ATTP වැනි විධානයන් භාවිතා කිරීම._' +
@@ -736,13 +736,13 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*🙇🏻 කණගාටුයි, මට මෙම දෝෂය කියවිය නොහැක! 🙇🏻*' +
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*🙇🏻 කණගාටුයි, මට මෙම දෝෂය කියවිය නොහැක! 🙇🏻*' +
                                         '\n_වැඩිදුර උදව් සඳහා ඔබට අපගේ support කණ්ඩායම් වෙත ලිවිය හැකිය._'
                                         , MessageType.text
                                     );
                                 }
                             } else {
-                                await Toretto.sendMessage(TorettoCon.user.jid, '*-- ERROR REPORT [Toretto] --*' + 
+                                await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*-- ERROR REPORT [Toretto] --*' + 
                                     '\n\n*Toretto an error has occurred!*'+
                                     '\n\n_This error log may include your number or the number of an opponent. Please be careful with it!_' +
                                     '\n\n_Aslo you can join our support group:_' +
@@ -752,7 +752,7 @@ else if (config.LANG == 'SI') {
                                     , MessageType.text, {detectLinks: false}
                                 );
                                 if (error.message.includes('URL')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Only Absolutely URLs Supported_' +
                                         '\n\n*Reason:* _The usage of media tools (xmedia, sticker..) in the LOG number._' +
@@ -761,7 +761,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('split')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Split of Undefined_' +
                                         '\n\n*Reason:* _Commands that can be used by group admins occasionally dont see the split function._ ' +
@@ -770,16 +770,16 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('Ookla')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
-                                        '\n\n*Main Error:* _Ookla Server TorettoConection_' +
+                                        '\n\n*Main Error:* _Ookla Server QueenAmdiConection_' +
                                         '\n\n*Reason:* _Speedtest data cannot be transmitted to the server._' +
                                         '\n\n*Solution:* _If you use it one more time the problem will be solved._'
                                         , MessageType.text
                                     );
                                 }
                                 else if (error.message.includes('params')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Requested Audio Params_' +
                                         '\n\n*Reason:* _Using the TTS command outside the Latin alphabet._' +
@@ -788,7 +788,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('unlink')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved``` ==========' +
                                         '\n\n*Main Error:* _No Such File or Directory_' +
                                         '\n\n*Reason:* _Incorrect coding of the plugin._' +
@@ -797,7 +797,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('404')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Error 404 HTTPS_' +
                                         '\n\n*Reason:* _Failure to communicate with the server as a result of using the commands under the Heroku plugin._' +
@@ -806,7 +806,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('reply.delete')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Reply Delete Function. And Double replying_' +
                                         '\n\n*Reason:* _Using IMG or Wiki commands. (May be using official Whatsapp)_' +
@@ -815,7 +815,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('load.delete')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Reply Delete Function_' +
                                         '\n\n*Reason:* _Using IMG or Wiki commands._' +
@@ -824,7 +824,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('400')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Bailyes Action Error_ ' +
                                         '\n\n*Reason:* _The exact reason is unknown. More than one option may have triggered this error._' +
@@ -833,7 +833,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('decode')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Cannot Decode Text or Media_' +
                                         '\n\n*Reason:* _Incorrect use of the plug._' +
@@ -842,25 +842,25 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else if (error.message.includes('500')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Media downloading error_' +
-                                        '\n\n*Reason:* _TorettoConection between site disTorettoConected._' +
+                                        '\n\n*Reason:* _QueenAmdiConection between site disQueenAmdiConected._' +
                                         '\n\n*Solution:* _Wait for few minutes. This error will fixed By Developers._'
                                         , MessageType.text
                                     );
                                 }
                                 else if (error.message.includes('503')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Media downloading error_' +
-                                        '\n\n*Reason:* _TorettoConection between site disTorettoConected._' +
+                                        '\n\n*Reason:* _QueenAmdiConection between site disQueenAmdiConected._' +
                                         '\n\n*Solution:* _Wait for few minutes. This error will fixed By Developers._'
                                         , MessageType.text
                                     );
                                 }
                                 else if (error.message.includes('unescaped')) {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*⚜️ ERROR ANALYSIS [Toretto] ⚜️*' + 
                                         '\n========== ```Error Resolved!``` ==========' +
                                         '\n\n*Main Error:* _Word Character Usage_' +
                                         '\n\n*Reason:* _Using commands such as TTP, ATTP outside the Latin alphabet._' +
@@ -869,7 +869,7 @@ else if (config.LANG == 'SI') {
                                     );
                                 }
                                 else {
-                                    return await Toretto.sendMessage(TorettoCon.user.jid, '*🙇🏻 Sorry, I Couldnt Read This Error! 🙇🏻*' +
+                                    return await QueenAmdiCon.sendMessage(QueenAmdiCon.user.jid, '*🙇🏻 Sorry, I Couldnt Read This Error! 🙇🏻*' +
                                         '\n_You can write to our support groups for more help._'
                                         , MessageType.text
                                     );
@@ -883,13 +883,13 @@ else if (config.LANG == 'SI') {
     });
 
     try {
-        await TorettoCon.connect();
+        await QueenAmdiCon.connect();
     } catch {
         if (!nodb) {
             console.log(chalk.red.bold('Refreshing your old version string...'))
-            TorettoCon.loadAuthInfo(Session.deCrypt(config.SESSION)); 
+            QueenAmdiCon.loadAuthInfo(Session.deCrypt(config.SESSION)); 
             try {
-                await TorettoCon.connect();
+                await QueenAmdiCon.connect();
             } catch {
                 return;
             }
@@ -897,4 +897,4 @@ else if (config.LANG == 'SI') {
     }
 }
 
-Toretto();
+queenAmdi();
