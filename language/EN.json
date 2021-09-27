@@ -198,8 +198,7 @@
             "TTS_DESC": "It translates words into voice messages.",
             "TTS_ERROR": "```Error, you can't voice message in your sentence!```",
             "SONG_DESC": "Uploading the songs.",
-            "NEED_TEXT_SONG": "*Please give me song name!*\n*Example:* ```.song buil
-```",
+            "NEED_TEXT_SONG": "*Please give me song name!*\n*Example:* ```.song runaway```",
             "NO_RESULT": "*I could not find anything. :(*",
             "YTS": "_📡 Based site : YouTube_",
             "DOWNLOADING_SONG": "\n```🔄 Downloading your song...```\n",
