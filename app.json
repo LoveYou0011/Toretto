@@ -1,6 +1,6 @@
 {
-    "name": "Queen Amdi 3.0.2v",
-    "description": "Queen Amdi is a chat bot for WhatsApp. Makes it easy and fun to use Whatsapp.",
+    "name": "Toretto 3.0.2v",
+    "description": "Toretto is a chat bot for WhatsApp. Makes it easy and fun to use Whatsapp.",
     "logo": "https://i.ibb.co/r3wmpwr/LOGO.jpg",
     "keywords": ["whatsapp", "userbot", "bot", "api", "ai", "Queen Amdi"],
     "repository": "",
@@ -9,11 +9,11 @@
     "stack": "container",
     "env": {
         "AMDI_SESSION": {
-            "description": "Paste your QR session that you got from https://replit.com/@BlackAmda/Queen-Amdi-QR-Code.",
+            "description": "Paste your QR session that you got from repl.it.",
             "required": true
         },
         "SUDO": {
-            "description": "If you do not know how to use it, leave it blank! SUDO mode; Your number must be an international number. So you have to have your number after the country code. Example: 947xxxxxxxx (Sri lanka No. 94)",
+            "description": "If you do not know how to use it, leave it blank! SUDO mode; Your number must be an international number. So you have to have your number after the country code. Example: 91xxxxxxxx (Indian No. 91)",
             "required": false
         },
         "LANGUAGE": {
@@ -62,7 +62,7 @@
         "CAP": {
             "description": "Set your caption under medias.",
             "required": true,
-            "value": "ᴳᵉⁿᵉʳᵃᵗᵉᵈ ᴮʸ Qᵘᵉᵉⁿ ᴬᵐᵈᶦ₂₀₂₁"
+            "value": "ᴳᵉⁿᵉʳᵃᵗᵉᵈ ᴮʸ Tᴏʀᴇᴛᴛᴏ ₂₀₂₁"
         },
         "IMGBB": {
             "description": "Paste your imgbb API to change ALIVE,Welcome,Bye pictures by a command. (Visit https://imgbb.com/ and signup there. And get an API key from https://api.imgbb.com/)",
