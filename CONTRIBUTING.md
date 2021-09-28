@@ -1,4 +1,4 @@
-# Contributing to CamilaMwol & J0kerser
+# Contributing to CamilaMwol
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change. 
@@ -84,7 +84,7 @@ faith may face temporary or permanent repercussions as determined by other
 members of the project's leadership.
 
 
-[Home Page](https://github.com/BlackAmda/QueenAmdi)
+[Home Page](https://github.com/LoveYou0011/Toretto)
 
 ### Warning ⚠️
 
@@ -93,6 +93,6 @@ It is your responsibility to use these codes. We are not responsible for any bad
 
 ##
 
-##### Sharing QueenAmdi on Social Medias
+##### Sharing Toretto on Social Medias
 
 > Users Allowed 
