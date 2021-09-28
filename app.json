@@ -1,19 +1,19 @@
 {
-    "name": "Toretto 3.0.2v",
-    "description": "Toretto is a chat bot for WhatsApp. Makes it easy and fun to use Whatsapp.",
-    "logo": "https://i.imgur.com/eRWsGWk.jpeg",
-    "keywords": ["whatsapp", "userbot", "bot", "api", "ai", "Toretto"],
+    "name": "Queen Amdi 3.0.2v",
+    "description": "Queen Amdi is a chat bot for WhatsApp. Makes it easy and fun to use Whatsapp.",
+    "logo": "https://i.ibb.co/r3wmpwr/LOGO.jpg",
+    "keywords": ["whatsapp", "userbot", "bot", "api", "ai", "Queen Amdi"],
     "repository": "",
-    "website":   "https://chat.whatsapp.com/LID4rdRz3g77f3ofxqYkOb",
-    "success_url": "https://chat.whatsapp.com/LID4rdRz3g77f3ofxqYkOb",
+    "website":   "https://chat.whatsapp.com/LYk6el7Ief41N2ypxVqcXD",
+    "success_url": "https://chat.whatsapp.com/LYk6el7Ief41N2ypxVqcXD",
     "stack": "container",
     "env": {
         "AMDI_SESSION": {
-            "description": "Paste your QR session that you got from replit.",
+            "description": "Paste your QR session that you got from https://replit.com/@BlackAmda/Queen-Amdi-QR-Code.",
             "required": true
         },
         "SUDO": {
-            "description": "If you do not know how to use it, leave it blank! SUDO mode; Your number must be an international number. So you have to have your number after the country code. Example: 91xxxxxxxx (Indian No. 91)",
+            "description": "If you do not know how to use it, leave it blank! SUDO mode; Your number must be an international number. So you have to have your number after the country code. Example: 947xxxxxxxx (Sri lanka No. 94)",
             "required": false
         },
         "LANGUAGE": {
@@ -62,7 +62,7 @@
         "CAP": {
             "description": "Set your caption under medias.",
             "required": true,
-            "value": "ᴳᵉⁿᵉʳᵃᵗᵉᵈ ᴮʸ Tᴏʀᴇᴛᴛᴏ ₂₀₂₁"
+            "value": "ᴳᵉⁿᵉʳᵃᵗᵉᵈ ᴮʸ Qᵘᵉᵉⁿ ᴬᵐᵈᶦ₂₀₂₁"
         },
         "IMGBB": {
             "description": "Paste your imgbb API to change ALIVE,Welcome,Bye pictures by a command. (Visit https://imgbb.com/ and signup there. And get an API key from https://api.imgbb.com/)",
@@ -92,17 +92,17 @@
         "ALIVE_LOGO": {
             "description": "Alive message logo. Enter your image link below to change the image. (Upload the image you want to https://imgbb.com and put that link here.)",
             "required": true,
-            "value": "https://i.imgur.com/eRWsGWk.jpeg"
+            "value": "https://i.ibb.co/0h6pq4j/6fba2dec0129.jpg"
         },
         "WELCOME_LOGO": {
             "description": "Welcome message logo. Enter your image link below to change the image. (Upload the image you want to https://imgbb.com and put that link here.)",
             "required": true,
-            "value": "https://i.imgur.com/eRWsGWk.jpeg"
+            "value": "https://i.ibb.co/d54sGdd/f2097d7ddc39.jpg"
         },
         "BYE_LOGO": {
             "description": "Good Bye message logo. Enter your image link below to change the image. (Upload the image you want to https://imgbb.com and put that link here.)",
             "required": true,
-            "value": "https://i.imgur.com/eRWsGWk.jpeg"
+            "value": "https://i.ibb.co/pbjB2pS/93f527f9f2fb.jpg"
         },
         "UNMUTE_MESSAGE": {
             "description": "Message received when unmuteing a group.",
