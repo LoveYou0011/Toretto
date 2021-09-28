@@ -4,7 +4,7 @@
 
 <div align="center">
 
-## [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Lemon+milk&color=F7000&lines=Welcome+to+Toretto+Bot+repo;Created+by+LoveYou0011;This+is+the+Best+AI+Chat+bot;With+more+features)](https://bit.ly/2VM4lxF)
+## ![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Lemon+milk&color=F7000&lines=Welcome+to+Toretto+Bot+repo;Created+by+LoveYou0011;This+is+the+Best+AI+Chat+bot;With+more+features)
 
  </a>
 </p>
